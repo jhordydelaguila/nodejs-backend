@@ -1,30 +1,17 @@
 const math = require('./math.js');
 
-const os = require('os');
+const http = require('http');
 
-/*
-console.log(os.platform());
-console.log(os.release());
-console.log("Free men: ", os.freemem(), " bytes");
-console.log("Total men: ", os.totalmem(), " bytes");
-*/
+const handleServer = function (req, res) {
+    res.writeHead(200, { 'Content-type': 'text/html' });
+    res.write("<h1>Hello word</h1>");
+    res.end();
+}
 
-const fs = require('fs');
+const server = http.createServer(handleServer);
 
-/*
-fs.writeFile("./texto.txt", "linea uno", function (err) {
-    if (err) {
-        console.log(err);
-    }
-
-    console.log("Archivo creado");
+server.listen(3000, function () {
+    console.log("Server on port 3000");
 });
-fs.readFile("./texto.txt", function (err, data) {
-    if (err) {
-        console.log(err);
-    }
 
-    console.log(data.toString());
-});
-*/
 
